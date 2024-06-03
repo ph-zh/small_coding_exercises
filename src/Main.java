@@ -21,11 +21,11 @@ public class Main {
         // Здесь отразите, что вы будете покупать корм каждые три дня
         // Опишите строку вывода
         // Цикл оканчивается здесь
-        for (int i = money; i > 0; i = i - foodPerDay) {
-            for (int j = days; j <= 15; j = j ++) {
-                System.out.println("На " + j + "-й день останется " + (i - foodPerDay) + " рублей.");
-            }
+        for (int i = money; (i - foodPerDay) >= 0; i = i - foodPerDay) {
+            days = days + 3;
+            System.out.println("На " + days + "-й день останется " + (i - foodPerDay) + " рублей.");
         }
+
         System.out.println("Денег хватит на " + days + " дней.");
     }
 }
