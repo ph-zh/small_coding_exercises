@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Ниже объявите пустой массив expenses для записи трат за неделю
-        ...
+        double[] expenses = new double[7];
 
         double rateUSD = 78.5;
         double rateEUR = 85;
@@ -31,7 +31,8 @@ public class Main {
             System.out.println("Что вы хотите сделать?");
             System.out.println("1 — Конвертировать валюту");
             System.out.println("2 — Получить совет");
-            ... // Допишите вывод нового пункта меню
+            // Допишите вывод нового пункта меню
+            System.out.println("3 — Ввести трату");
             System.out.println("0 — Выход");
 
             int command = scanner.nextInt();
@@ -71,18 +72,22 @@ public class Main {
                         System.out.println("Неплохо! Прикупите долларов и зайдите поужинать в классное место. :)");
                     }
                 }
-            } else if (...) { // Ещё одно ветвление для обработки новой команды, допишите его условие
+            } else if (command == 3) { // Ещё одно ветвление для обработки новой команды, допишите его условие
                 // Допишите код для печати сообщения для пользователя
                 // Текст сообщения: "За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?"
-								...
+                System.out.println("За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?");
                 // Получите из консоли день, за который пользователь хочет указать расходы
-                int day = ...
+                int day = scanner.nextInt();
                 System.out.println("Введите размер траты:");
                 // Получите из консоли значение расходов и сохраните в переменной expense
-				        ...
+                double expense = scanner.nextDouble();
                 // Сохраните полученное значение дневных трат в массив expenses
                 // Не забудьте прибавить новое значение к уже существующим тратам
-				        ...
+                for (int i = day; i < expenses.length; i++) {
+                    expenses[i - 1] = expense;
+                    expense = expense + expenses[i - 1];
+                }
+                System.out.println(expense);
                 System.out.println("Значение сохранено!");
 
             } else if (command == 0) {
