@@ -6,17 +6,15 @@
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Наибольшее из чисел 3 и 5 = " + findMax());
-        // Напишите аналогичный вызов метода findMax для таких пар чисел: 16 и 5, -1 и -7
-		...
+        sayHello("Пиксель"); // Передали в метод имя Пиксель
+        sayHello("хомяк Байт"); // Передали в метод имя и вид животного
+        sayHello("пользователь #1"); // Передали в метод слово пользователь и его номер
+        sayHello("здесь можно писать всё, что захочется!"); // Передали в метод предложение
+        sayHello("Олимпийский!"); // И так тоже можно
     }
 
-    public static int findMax() {
-        int a = 5;
-        int b = 3;
-        if (a > b) {
-            return a;
-        }
-        return b;
+    // У метода объявляем параметр — строковую переменную username
+    public static void sayHello(String username) {
+        System.out.println("Привет, " + username); // К параметру метода можно обратиться
     }
 }
