@@ -1,27 +1,16 @@
 /*
-Объявите и реализуйте метод findMaxExpense — он должен находить в списке расходов
-за неделю самую большую трату и возвращать её значение. В качестве единственного параметра
-этого метода укажите массив расходов expenses.
+Исправьте код таким образом, чтобы метод sayHello() принимал параметр — имя того,
+с кем нужно поздороваться. Затем поздоровайтесь с Пикселем и Байтом, используя переменные в main.
  */
 
 public class Main {
-
     public static void main(String[] args) {
-        double[] expenses = {1772.5, 367.0, 120.6, 2150.2, 874.0, 1.0, 1459.4};
-        double maxExpense = findMaxExpense(expenses); // Вызовите метод и присвойте maxExpense значение его результата
-        System.out.println("Самая большая трата недели " + maxExpense);
+        sayHello("Пиксель");
+        sayHello("Байт");
     }
 
-	// Объявите метод findMaxExpense
-    // Реализуйте метод. Чтобы найти самую большую трату, воспользуйтесь циклом
-    // Самую большую трату запишите в переменную maxExpense
-    public static double findMaxExpense(double[] expenses) {
-        double max = 0;
-        for (int i = 0; i < expenses.length; i++) {
-            if (expenses[i] > max) {
-                max = expenses[i];
-            }
-        }
-        return max;
+    public static String sayHello(String username) {
+        System.out.println("Привет, " + username);
+        return username;
     }
 }
