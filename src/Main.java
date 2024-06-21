@@ -19,7 +19,7 @@ public class Main {
         int daysBeforeSalary = scanner.nextInt();
 
         Converter converter = new Converter(78.5,88.7,0.75);
-        ... // Создайте объект класса DinnerAdvisor
+        DinnerAdvisor dinnerAdvisor = new DinnerAdvisor(); // Создайте объект класса DinnerAdvisor
 
         while (true) {
             printMenu();
@@ -31,7 +31,7 @@ public class Main {
                 int currency = scanner.nextInt();
                 converter.convert(moneyBeforeSalary, currency);
             } else if (command == 2) {
-                ... // Вызовите метод класса DinnerAdvisor
+                dinnerAdvisor.getAdvice(moneyBeforeSalary, daysBeforeSalary); // Вызовите метод класса DinnerAdvisor
             } else if (command == 3) {
                 moneyBeforeSalary = saveExpense(scanner, moneyBeforeSalary, expenses);
             } else if (command == 4) {
@@ -85,29 +85,5 @@ public class Main {
         System.out.println("4 - Показать траты за неделю");
         System.out.println("5 - Показать самую большую сумму расходов за неделю");
         System.out.println("0 - Выход");
-    }
-
-    public static void getAdvice(double moneyBeforeSalary, int daysBeforeSalary) {
-        if (moneyBeforeSalary < 3000) {
-            System.out.println("Сегодня лучше поесть дома. Экономьте, и вы дотянете до зарплаты!");
-        } else if (moneyBeforeSalary < 10000) {
-            if (daysBeforeSalary < 10) {
-                System.out.println("Окей, пора в Макдак!");
-            } else {
-                System.out.println("Сегодня лучше поесть дома. Экономьте, и вы дотянете до зарплаты!");
-            }
-        } else if (moneyBeforeSalary < 30000) {
-            if (daysBeforeSalary < 10) {
-                System.out.println("Неплохо! Прикупите долларов и зайдите поужинать в классное место. :)");
-            } else {
-                System.out.println("Окей, пора в Макдак!");
-            }
-        } else {
-            if (daysBeforeSalary < 10) {
-                System.out.println("Отлично! Заказывайте крабов!");
-            } else {
-                System.out.println("Неплохо! Прикупите долларов и зайдите поужинать в классное место. :)");
-            }
-        }
     }
 }
