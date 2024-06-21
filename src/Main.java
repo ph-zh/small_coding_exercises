@@ -1,9 +1,15 @@
 /*
-Прочитайте код и расположите имена хомяков в порядке убывания их веса
+Из-за того что мы добавили в класс Hamster конструктор с параметрами,
+код из предыдущего урока перестал работать. Перепишите его.
  */
 public class Main {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Hamster bite = new Hamster();
+        bite.name = "Байт";
+        bite.age = 2;
+        bite.color = "Рыжий";
+        bite.weight = 350;
+
         Hamster ninja = new Hamster();
         ninja.name = "Ниндзя";
         ninja.age = 1;
@@ -21,6 +27,11 @@ public class Main {
         paskal.age = 2;
         paskal.weight = 320;
         paskal.color = "Чёрный";
+
+        System.out.println(bite.name);
+        System.out.println(ninja.name);
+        System.out.println(kuzya.name);
+        System.out.println(paskal.name);
     }
 }
 
