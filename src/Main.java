@@ -1,6 +1,10 @@
 /*
-Осталось исправить код в классе Praktikum — конструктор по-умолчанию больше не генерируется и возникает ошибка.
-При вызове конструктора с параметрами передайте следующие значения аргуметов: 78.5 для доллара, 88.7 для евро и 0.75 для японской иены.
+В отдельной вкладке создайте новый класс — DinnerAdvisor (англ. «советник по ужину»).
+У него не будет полей и будет только один метод getAdvice(double moneyBeforeSalary, int daysBeforeSalary) —
+перенесите в него код из соответствующего метода класса Praktikum.
+В классе Praktikum создайте объект класса DinnerAdvisor, воспользовавшись конструктором по умолчанию.
+Вызовите метод getAdvice класса DinnerAdvisor в блоке ветвления, который отвечает за реализацию пункта меню
+«Получить совет». Из класса Praktikum удалите метод getAdvice(double moneyBeforeSalary, int daysBeforeSalary).
  */
 import java.util.Scanner;
 
@@ -9,13 +13,13 @@ public class Main {
         double[] expenses = new double[7];
 
         Scanner scanner = new Scanner(System.in);
-        Converter converter = new Converter(78.5, 88.7, 0.75); // Вызовите конструктор с параметрами
-
         System.out.println("Сколько денег у вас осталось до зарплаты?");
         double moneyBeforeSalary = scanner.nextDouble();
-
         System.out.println("Сколько дней до зарплаты?");
         int daysBeforeSalary = scanner.nextInt();
+
+        Converter converter = new Converter(78.5,88.7,0.75);
+        ... // Создайте объект класса DinnerAdvisor
 
         while (true) {
             printMenu();
@@ -27,7 +31,7 @@ public class Main {
                 int currency = scanner.nextInt();
                 converter.convert(moneyBeforeSalary, currency);
             } else if (command == 2) {
-                getAdvice(moneyBeforeSalary, daysBeforeSalary);
+                ... // Вызовите метод класса DinnerAdvisor
             } else if (command == 3) {
                 moneyBeforeSalary = saveExpense(scanner, moneyBeforeSalary, expenses);
             } else if (command == 4) {
