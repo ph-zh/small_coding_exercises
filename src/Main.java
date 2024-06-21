@@ -10,7 +10,7 @@ public class Main {
         double[] expenses = new double[7];
 
         Scanner scanner = new Scanner(System.in);
-        Converter converter = new Converter(); // Создайте объект класса Converter
+        Converter converter = ...; // Вызовите конструктор с параметрами
 
         System.out.println("Сколько денег у вас осталось до зарплаты?");
         double moneyBeforeSalary = scanner.nextDouble();
@@ -26,7 +26,7 @@ public class Main {
                 System.out.println("Ваши сбережения: " + moneyBeforeSalary + " RUB");
                 System.out.println("В какую валюту хотите конвертировать? Доступные варианты: 1 - USD, 2 - EUR, 3 - JPY.");
                 int currency = scanner.nextInt();
-                converter.convert(moneyBeforeSalary, currency); // Вызовите метод класса Converter
+                converter.convert(moneyBeforeSalary, currency);
             } else if (command == 2) {
                 getAdvice(moneyBeforeSalary, daysBeforeSalary);
             } else if (command == 3) {
