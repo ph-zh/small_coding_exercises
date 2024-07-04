@@ -1,13 +1,7 @@
 public class Converter {
-    double rateUSD;
-    double rateEUR;
-    double rateJPY;
-
-    Converter(double usd, double eur, double jpy) {
-        rateUSD = usd;
-        rateEUR = eur;
-        rateJPY = jpy;
-    }
+    double rateUSD = 78.5;
+    double rateEUR = 88.7;
+    double rateJPY = 0.75;
 
     void convert(double rubles, int currency) {
         if (currency == 1) {
