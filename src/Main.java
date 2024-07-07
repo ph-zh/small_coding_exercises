@@ -1,5 +1,16 @@
+/*
+Как видим, можно вычислить три признака високосного года:
+
+Год является високосным, если год делится на 4 без остатка.
+Год не является високосным, если он полностью делится и на 4, и на 100.
+Год является високосным, если он делится и на 4, и на 100, и на 400.
+ */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("It's alive! It's alive!");
+        int year = 1;
+        }
+
+        public static int leapYearCount(int year) {
+        return year;
     }
 }
