@@ -1,14 +1,14 @@
 /*
-Создайте две переменные: целого типа a и действительного b, равные 5 и 0.4 соответственно.
-Выведите построчно на экран их сумму, разность, произведение и частное.
+Напишите программу, которая считывает три целых числа и выводит их произведение.
  */
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        int a = 5;
-        double b = 0.4;
-        System.out.println(a + b);
-        System.out.println(a - b);
-        System.out.println(a * b);
-        System.out.println(a / b);
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
+        System.out.println(a * b * c);
     }
 }
