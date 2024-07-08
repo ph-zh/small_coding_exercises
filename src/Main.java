@@ -1,16 +1,21 @@
 /*
-Дано целое число n. Выведите следующее за ним четное число.
-При решении этой задачи нельзя использовать условную инструкцию if и циклы.
-Подсказка: Подумайте, что будет оставаться в остатке при делении на 2 у чётных и у нечётных чисел.
+Пирожок в столовой стоит a рублей и b копеек. Определите, сколько рублей и копеек нужно заплатить за n пирожков.
+Программа получает на вход три числа: a, b, n.
+Программа должна вывести два числа: стоимость покупки в рублях и копейках.
  */
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int x = 2;
-        x = n - (n % x) + 2;
-        System.out.println(x);
+        //int n = scanner.nextInt();
+        //double a = scanner.nextDouble();
+        //double b = scanner.nextDouble();
+        int n = 10;
+        double a = 15;
+        double b = 2;
+        double sumRub = n * a;
+        double sumCope = n * b;
+        System.out.println(sumRub + " " + sumCope);
     }
 }
