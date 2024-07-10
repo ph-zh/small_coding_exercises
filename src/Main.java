@@ -1,21 +1,26 @@
 /*
-Пирожок в столовой стоит a рублей и b копеек. Определите, сколько рублей и копеек нужно заплатить за n пирожков.
-Программа получает на вход три числа: a, b, n.
-Программа должна вывести два числа: стоимость покупки в рублях и копейках.
- */
-import java.util.Scanner;
 
+ */
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        //int n = scanner.nextInt();
-        //double a = scanner.nextDouble();
-        //double b = scanner.nextDouble();
-        int n = 10;
-        double a = 15;
-        double b = 2;
-        double sumRub = n * a;
-        double sumCope = n * b;
-        System.out.println(sumRub + " " + sumCope);
+        // Допишите тип для names
+        String[] names = {"Маша", "Саша", "Катя", "Артём"};
+        sayHello(names);
+
+        // Укажите тип переменной
+        int sum = add(3, 6);
+    }
+
+    // Добавьте подходящий тип у параметра метода
+    public static void sayHello(String[] names) {
+        // У переменной итерирования тоже должен быть тип
+        for (int i = 0; i < names.length; i++) {
+            System.out.println("Привет, " + names[i]);
+        }
+    }
+
+    // Вставьте тип возвращаемого значения метода и его параметров
+    public static int add(int a, int b) {
+        return a + b;
     }
 }
