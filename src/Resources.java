@@ -5,13 +5,7 @@ class Resources {
     long health;
     boolean hasHelper;
 
-    public Resources(
-            long inputGold,
-            byte inputSilver,
-            short inputWood,
-            long inputHealth,
-            boolean inputHasHelper
-    ) {
+    public Resources(long inputGold, byte inputSilver, short inputWood, long inputHealth, boolean inputHasHelper) {
         gold = inputGold;
         silver = inputSilver;
         wood = inputWood;

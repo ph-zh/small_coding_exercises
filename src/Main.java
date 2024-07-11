@@ -26,14 +26,19 @@ public class Main {
                 inputHasHelper
         );
 
-        int characterGold = ...
-        int characterSilver = ...
-        double characterWood = ...
-        byte characterHealth = ...
+        int characterGold = (int)inputGold;
+        int characterSilver = inputSilver;
+        double characterWood = inputWood;
+        byte characterHealth = (byte) inputHealth;
         byte characterHelpersNumber;
 
         // Установка значения characterHelpersNumber в зависимости от значения hasHelper
-        ...
+        if(characterResources.hasHelper == true) {
+            characterHelpersNumber = 1;
+        } else {
+            characterHelpersNumber = 0;
+        }
+
 
         Character character = new Character(
                 characterGold,
