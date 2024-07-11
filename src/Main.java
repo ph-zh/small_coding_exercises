@@ -27,13 +27,13 @@ public class Main {
         );
 
         int characterGold = (int)inputGold;
-        int characterSilver = inputSilver;
+        int characterSilver = 100 * inputSilver;
         double characterWood = inputWood;
         byte characterHealth = (byte) inputHealth;
         byte characterHelpersNumber;
 
         // Установка значения characterHelpersNumber в зависимости от значения hasHelper
-        if(characterResources.hasHelper == true) {
+        if(characterResources.hasHelper) {
             characterHelpersNumber = 1;
         } else {
             characterHelpersNumber = 0;
