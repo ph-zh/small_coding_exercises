@@ -39,7 +39,6 @@ public class Main {
             characterHelpersNumber = 0;
         }
 
-
         Character character = new Character(
                 characterGold,
                 characterSilver,
