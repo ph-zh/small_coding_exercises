@@ -1,8 +1,8 @@
 class PersonAccount {
     String name;      // Имя и фамилия
-    double moneyRUB;  // Счёт в рублях
-    double moneyUSD;  // Счёт в долларах
-    double moneyEUR;  // Счёт в евро
+    Double moneyRUB = 0.0;  // Счёт в рублях
+    Double moneyUSD = 0.0;  // Счёт в долларах
+    Double moneyEUR = 0.0;  // Счёт в евро
 
 
     PersonAccount(String userName) {
