@@ -1,41 +1,34 @@
 /*
-Кота Пикселя на вечер субботы оставили бабушке. Она приготовила ему на выбор говядину и курицу,
-а перед сном налила молока и поставила блюдце сливок. Пиксель внимательно следит за питанием и в
-обоих случаях выбрал наименее калорийную еду. Вычислите, сколько всего ккал съел Пиксель за день, 
-и проверьте, уложился ли питомец в свой лимит в 100 ккал. Чтобы код сработал, вам также нужно найти
-и исправить ошибки, касающиеся типов.
+
  */
 public class Main {
     public static void main(String[] args) {
-        String pixelKcalDay = "43"; // столько калорий съел Пиксель до похода к бабушке
-        String beefKcal = "30.2"; // калорийность говядины
-        String chickenKcal = "23.8"; // калорийность курицы
-        String creamKcal = "32.1"; // калорийность сливок
-        String milkKcal = "13.5"; // калорийность молока
-
-        float pixelChoice = getMinKcalsSum(beefKcal, chickenKcal, creamKcal, milkKcal);
-        float totalKcal = Float.parseFloat(pixelKcalDay) + pixelChoice;
-        checkKcal(totalKcal);
+        // 1. Создан новый блок стека — main
+        // 2. Создаём переменную number
+        int number = 5;
+        // стек: {main: [number = 5]}
+        // 3. Вызываем метод makePower. Передаём на вход переменную number и число 3
+        // 9. Копируем значение, которое вернул метод makePower, в переменную result в блоке main
+        int result = makePower(number, 3);
+        // стек: {main: [number = 5, result = 125]}
+        // 10. Выводим значения переменных result и number
+        System.out.println("Результат вычисления степени: " + result);
+        System.out.println("Значение inputNumber: " + number);
     }
 
-    private static Float getMinKcalsSum(String firstDishKcal, String secondDishKcal, String firstDesert, String secondDesert) {
-        // вычислите минимальную калорийность основного блюда
-        float minDishKcal = Float.min(Float.parseFloat(firstDishKcal),Float.parseFloat(secondDishKcal));
-        // вычислите минимальную калорийность десерта
-        float minDesertKcal = Float.min(Float.parseFloat(firstDesert), Float.parseFloat(secondDesert));
-        return minDishKcal + minDesertKcal;
-    }
-
-    private static void checkKcal(Float catKcal) {
-        if (catKcal == null) {
-            System.out.println("Что-то пошло не так");
-        } else {
-            System.out.println("Калорийность рациона Пикселя за день: " + catKcal);
-            if (catKcal > 100) {
-                System.out.println("Пиксель сегодня не уложился в норму.");
-            } else {
-                System.out.println("Лимит не превышен!");
-            }
+    static int makePower(int number, int power) {
+        // 4. Создан новый блок стека — makePower
+        // 5. Созданы переменные number и power, в них скопированы значения 5 и 3
+        // стек: {makePower: [number = 5, power = 3], main: [number = 5] }
+        // 6. Создана переменная sourceNumber, копируем в неё значение 5 из переменной number
+        // стек: {makePower: [number = 5, power = 3, sourceNumber = 5], main: [number = 5]}
+        int sourceNumber = number;
+        for (int i = 2; i <= power; i++) {
+            // 7. Обновляем значение переменной number
+            number = number * sourceNumber;
         }
+        // стек: {makePower: [number = 125, power = 3, sourceNumber = 5], main: [number = 5] }
+        // 8. Возвращаем значение переменной number
+        return number;
     }
 }
