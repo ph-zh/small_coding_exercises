@@ -1,53 +1,15 @@
 /*
-Прочитайте код приложения онлайн-банка, где пользователь может по желанию завести счета в трёх валютах.
-В программу забрался баг — вне зависимости от выбора пользователя сразу открываются все три счёта.
-С помощью классов-обёрток и их свойств исправьте код так, чтобы открывались счета только в тех валютах,
-которые выберет пользователь. Счета необходимо создавать с нулевым балансом.
+Допишите реализацию метода, который возвращает максимум двух чисел типа byte.
+Необходимо использовать метод Integer.max(int, int).
  */
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите имя пользователя:");
-        String name = scanner.nextLine();
-        PersonAccount user = new PersonAccount(name);
+        byte a = 10;
+        byte b = 20;
+        System.out.println(findMax(a, b));
+    }
 
-        System.out.println("Хотите открыть счёт в RUB?");
-        System.out.println("1 - Да");
-        System.out.println("2 - Нет");
-        int command = scanner.nextInt();
-        if (command == 1) {
-            user.moneyRUB = null;
-        }
-
-        System.out.println("Хотите открыть счёт в USD?");
-        System.out.println("1 - Да");
-        System.out.println("2 - Нет");
-        command = scanner.nextInt();
-        if (command == 1) {
-            user.moneyUSD = null;
-        }
-
-        System.out.println("Хотите открыть счёт в EUR?");
-        System.out.println("1 - Да");
-        System.out.println("2 - Нет");
-        command = scanner.nextInt();
-        if (command == 1) {
-            user.moneyEUR = null;
-        }
-
-        System.out.println("Поздравляем, аккаунт для пользователя " + user.name + " создан.");
-        System.out.println("Открытые счета:");
-        if (user.moneyRUB == null) {
-            System.out.println("- RUB");
-        }
-        if (user.moneyUSD == null) {
-            System.out.println("- USD");
-        }
-        if (user.moneyEUR == null) {
-            System.out.println("- EUR");
-        }
-
+    private static byte findMax(byte firstNumber, byte secondNumber) {
+        return (byte)Integer.max(firstNumber, secondNumber);
     }
 }
