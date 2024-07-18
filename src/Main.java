@@ -1,21 +1,79 @@
 /*
+Доработайте код программы, которая анализирует погоду за месяц и определяет, был ли он дождливым.
+Сейчас поля класса WeatherCalendar инициализируются некорректно. Исправьте это. Вы должны учесть, что:
 
+1/ Значения полей month и numberOfDays должны присваиваться в конструкторе. Для этого объявите его с двумя параметрами
+— monthName и monthNumberOfDays, а при вызове передайте в качестве аргументов значения «Октябрь» и «31».
+2/ Полям rainyDays и isRainyMonth должны присваиваться значения по умолчанию (сейчас они инициализируются явно).
+3/ Поле year должно быть проинициализировано при объявлении на уровне класса. Сохраните в него значение 2020.
+
+Кроме того, внутри WeatherCalendar допишите метод addRainyDay() — он увеличивает переменную rainyDays на единицу.
+Также нужно дописать код условных выражений. Если дождливых дней в месяце больше 15, необходимо присвоить переменной
+isRainyMonth значение true. Чтобы напечатать сообщение-вывод, нужно обратиться к этой переменной.
  */
 public class Main {
     public static void main(String[] args) {
-        Hamster homa = new Hamster(); // создали объект
-        System.out.println("Имя хомяка: " + homa.name);
-        System.out.println("Возраст хомяка: " + homa.age);
-        System.out.println("Вес хомяка: " + homa.weight);
-        System.out.println("Пушистый ли хомяк: " + homa.isFluffy);
-        System.out.println("Цвет хомяка: " + homa.color);
+        WeatherCalendar calendar;
+        calendar.month = "Октябрь";
+        calendar.numberOfDays = 31;
+        calendar.rainyDays = 0;
+        calendar.isRainyMonth = false;
 
+        String[] octoberWeather = new String[]{
+                "Солнечно",
+                "Дождь",
+                "Пасмурно",
+                "Дождь",
+                "Дождь",
+                "Облачно",
+                "Солнечно",
+                "Дождь",
+                "Пасмурно",
+                "Солнечно",
+                "Солнечно",
+                "Облачно",
+                "Солнечно",
+                "Дождь",
+                "Пасмурно",
+                "Солнечно",
+                "Солнечно",
+                "Облачно",
+                "Облачно",
+                "Облачно",
+                "Облачно",
+                "Дождь",
+                "Дождь",
+                "Облачно",
+                "Солнечно",
+                "Дождь",
+                "Пасмурно",
+                "Дождь",
+                "Солнечно",
+                "Солнечно",
+                "Солнечно",
+                "Солнечно",
+                "Облачно"
+        };
+
+        for (int i = 0; i < calendar.numberOfDays; i++) {
+            if (octoberWeather[i].equals("Дождь")) {
+                calendar.addRainyDay();
+            }
+        }
+
+        // Проверить, был ли месяц дождливым. Если да - установить значение isRainyMonth
+        if (...) {
+            ...
+        }
+
+        System.out.println(calendar.month + " " + calendar.year + " года. "
+                + calendar.rainyDays + " дней шёл дождь.");
+
+        // Проверить значение isRainyMonth
+        if (...) {
+            System.out.println("Это был дождливый месяц.");
+        } else {
+            System.out.println("Этот месяц был довольно сухим.");
+        }
     }
-}
-class Hamster {
-    String name; // не проинициализировали четыре поля
-    int age;
-    double weight;
-    boolean isFluffy;
-    String color = "Рыжий"; // здесь присвоили значение
 }
