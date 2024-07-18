@@ -4,12 +4,12 @@
 
 1/ Поле gold типа long необходимо сохранить в переменную characterGold типа int (точно известно, что
 значение параметра gold меньше 2 000 000 000).
-3/ Поле silver типа byte необходимо сохранить как переменную characterSilver типа int,
+2/ Поле silver типа byte необходимо сохранить как переменную characterSilver типа int,
 предварительно умножив её на 100.
-4/ Поле wood типа short необходимо сохранить как переменную characterWood типа double.
-5/ Поле health типа long необходимо сохранить как переменную characterHealth типа byte 
+3/ Поле wood типа short необходимо сохранить как переменную characterWood типа double.
+4/ Поле health типа long необходимо сохранить как переменную characterHealth типа byte
 (точно известно, что значение параметра health меньше 100).
-6/ Поле hasHelper типа boolean необходимо сохранить как переменную characterHelpersNumber типа byte.
+5/ Поле hasHelper типа boolean необходимо сохранить как переменную characterHelpersNumber типа byte.
 Если параметр hasHelper равен true, то в переменную characterHelpersNumber сохранить единицу, если false — ноль.
  */
 public class Main {
@@ -28,14 +28,18 @@ public class Main {
                 inputHasHelper
         );
 
-        int characterGold = ...
-        int characterSilver = ...
-        double characterWood = ...
-        byte characterHealth = ...
+        int characterGold = (int)characterResources.gold;
+        int characterSilver = characterResources.silver * 100;
+        double characterWood = characterResources.wood;
+        byte characterHealth = (byte)characterResources.health;
         byte characterHelpersNumber;
 
         // Установка значения characterHelpersNumber в зависимости от значения hasHelper
-        ...
+        if(characterResources.hasHelper) {
+            characterHelpersNumber = 1;
+        } else {
+            characterHelpersNumber = 0;
+        }
 
         Character character = new Character(
                 characterGold,
