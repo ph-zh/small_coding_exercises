@@ -23,6 +23,7 @@ public class Main {
 
     private static void increaseTicketNumber(Bus bus) {
         // вставьте код для увеличения номера билета
+        bus.ticketNumber = bus.ticketNumber + 1;
     }
 
 }
