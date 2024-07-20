@@ -1,37 +1,14 @@
 /*
-Перед вами программа для выдачи билетов пассажирам. Каждому билету должен быть присвоен уникальный номер.
-Ваша задача — реализовать логику присвоения этих номеров таким образом, чтобы каждый следующий номер был больше предыдущего на единицу.
+Исправьте код: расставьте строки так, чтобы программа напечатала число 57.
  */
 public class Main {
     public static void main(String[] args) {
-        Bus bus = new Bus(23765);
-        String[] passengersTimestamps = new String[]{
-                "08:33",
-                "09:42",
-                "10:43",
-                "17:59",
-                "18:01",
-                "19:15"
-        };
-
-        for (int i = 0; i < passengersTimestamps.length; i++) {
-            increaseTicketNumber(bus);
-            System.out.println("Оплата поездки в " + passengersTimestamps[i]
-                    + ". Номер билета: " + bus.ticketNumber);
-        }
+        b /= 3;
+        System.out.println(result);
+        int result = a - b;
+        a *= 5;
+        int b = 9;
+        int a = 11;
+        a += 1;
     }
-
-    private static void increaseTicketNumber(Bus bus) {
-        // вставьте код для увеличения номера билета
-        bus.ticketNumber = bus.ticketNumber + 1;
-    }
-
-}
-
-class Bus {
-    public Bus(int initialNumber) {
-        ticketNumber = initialNumber;
-    }
-
-    int ticketNumber;
 }
