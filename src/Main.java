@@ -19,9 +19,9 @@ public class Main {
 
     private static void printMaximumPeopleToMeeting(int slicesToPerson, int slicesInPizza) {
         int numOfPizzas = 2;
-        int totalSlices = ... // Посчитайте общее число кусков пиццы
-        int maximumPeopleToMeeting = ... // На сколько человек хватит пиццы
-        int leftSlices = ... // Сколько пиццы останется
+        int totalSlices = slicesInPizza * numOfPizzas; // Посчитайте общее число кусков пиццы
+        int maximumPeopleToMeeting = totalSlices / slicesToPerson; // На сколько человек хватит пиццы
+        int leftSlices = totalSlices % slicesToPerson; // Сколько пиццы останется
         System.out.println("Максимальное число участников идеальной встречи: " + maximumPeopleToMeeting);
         System.out.println("Останется кусков пиццы: " + leftSlices);
     }
