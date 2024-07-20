@@ -1,13 +1,17 @@
 /*
-Хьюстон, у нас проблемы! Сломался алгоритм обратного отсчёта на ракете SpaceY! Из центра управления есть доступ только к одной
-строке кода — строке печати в теле цикла. Исправьте её так, чтобы в консоли появились числа от 7 до 1.
+Допишите код метода, который проверяет, чётное число или нет.
  */
 public class Main {
     public static void main(String[] args) {
-        int countDown = 8;
-        for (int i = 0; i < 7; i++) {
-            System.out.println(--countDown); // Исправьте эту строку
+        int numberToCheck = 11;
+        isEven(numberToCheck);
+    }
+
+    public static void isEven(int number) {
+        if (number % 2 == 0) { // в условии должна быть проверка на чётность
+            System.out.println(number + " - чётное");
+        } else {
+            System.out.println(number + " - нечётное");
         }
-        System.out.println("Вперёд!");
     }
 }
