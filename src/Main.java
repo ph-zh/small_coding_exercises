@@ -8,24 +8,27 @@
  */
 public class Main {
     public static void main(String[] args) {
-        ... roubles = 5000; // сумма на счету
-        ... yearRate = 4; // годовая процентная ставка
-        ... numOfMonth = 36; // количество месяцев, на который открыт вклад
-        ... monthRefill = 1000; // ежемесячное пополнение
+        double roubles = 5000; // сумма на счету
+        double yearRate = 4; // годовая процентная ставка
+        int numOfMonth = 36; // количество месяцев, на который открыт вклад
+        double monthRefill = 1000; // ежемесячное пополнение
+        double goal = 41000;
 
-        ... monthRate = ... // вычислите месячную процентную ставку
+        double monthRate = yearRate / 100 / 12; // вычислите месячную процентную ставку
 
-        for (...) { // дополните условие цикла
-        ... depositInterest = ... // вычислите доход от процентов
-        ... // добавьте доход от процентов
-        ... // учтите ежемесячное пополнение
+        for (int i = 1; i <= numOfMonth; i++) { // дополните условие цикла
+            double depositInterest = roubles * monthRate; // вычислите доход от процентов
+            // добавьте доход от процентов
+            roubles += depositInterest;
+            // учтите ежемесячное пополнение
+            roubles += monthRefill;
         }
 
         System.out.println("Через " + numOfMonth + " месяцев накопится " + roubles + " рублей");
 
-        if (...) { // определите, удалось ли достичь цели
+        if (roubles >= goal){ // определите, удалось ли достичь цели
             System.out.println("Ура! Можно идти в магазин за новым объективом!");
-        } else {
+        } else{
             System.out.println("Нужно ещё немного подкопить.");
         }
     }
