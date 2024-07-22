@@ -31,12 +31,12 @@ class Scooter {
     }
 
     void returnScooter() {
-        if(availableScooters <= 0) { // Проверьте, есть ли самокаты в аренде
+        if(scootersInUse <= 0) { // Проверьте, есть ли самокаты в аренде
             System.out.println("Все самокаты уже возвращены.");
         } else {
             // Уменьшите число арендованных самокатов и увеличьте число доступных
             System.out.println("Самокат принят.");
-            System.out.println("Самокатов в аренде: " + --scootersInUse);
+            System.out.println("Самокатов в аренде: " + scootersInUse--);
             System.out.println("Самокатов доступно: " + ++availableScooters);
         }
     }
