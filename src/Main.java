@@ -54,7 +54,7 @@ public class Main {
                 scooter.rentScooter();
             } else if (command == 3) {
                 // Вызовите нужный метод класса Scooter
-                scooter.rentScooter();
+                scooter.returnScooter();
             } else if (command == 4) {
                 System.out.println("Сеанс работы завершён!");
                 // Завершите ввод команд и работу программы
