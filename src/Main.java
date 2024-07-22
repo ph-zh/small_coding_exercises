@@ -58,7 +58,7 @@ public class Main {
             } else if (command == 4) {
                 System.out.println("Сеанс работы завершён!");
                 // Завершите ввод команд и работу программы
-                return;
+                break;
             } else {
                 System.out.println("Введён неверный код команды.");
             }
