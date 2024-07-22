@@ -6,7 +6,10 @@ public class Main {
         int a = 13;
         int b = 3;
 
-        a = ++a - a % b++;
+        a = a + 1;
+        int c = a % b;
+        a = a - c;
+        b = b + 1;
         System.out.println(a + " и " + b);
     }
 }
