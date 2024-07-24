@@ -21,7 +21,8 @@ public class Main {
                 new Hamster("Снежинка", 175.9, 4, "Рыжий", false, false),
                 new Hamster("Штучка", 199.9, 7, "Чёрный", true, true),
                 new Hamster("Баранка", 173.8, 5, "Рыже-белый", true, false),
-                ... // Добавьте Ниндзю
+                // Добавьте Ниндзю
+                new Hamster("Ниндзя", 168, 3,"Рыже-белый", true, false )
         };
 
         System.out.println("В конкурсе «Рыжий хомяк года» смогут участвовать:");
@@ -29,11 +30,11 @@ public class Main {
             Hamster hamster = hamsters[i];
 
             // Составьте условие отбора с помощью дополнительных переменных
-            boolean isColor = ...
-            boolean isWeight = ...
-            boolean isAge = ...
+            boolean isColor = hamster.color.equals("Рыжий") || hamster.color.equals("Рыже-белый") && hamster.isFluffy;
+            boolean isWeight = hamster.weight >= 150 && hamster.weight <=200 || hamster.isFluffy;
+            boolean isAge = hamster.age >=2;
 
-            if (...) {
+            if (isColor || isWeight || isAge || hamster.isWinner) {
                 System.out.println(" - " + hamster.name);
             }
         }
