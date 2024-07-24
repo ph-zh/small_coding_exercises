@@ -18,7 +18,7 @@ public class Main {
             System.out.println("Когда планируется путешествие? Введите номер месяца от 1 до 12.");
             monthNumber = scanner.nextInt();
 
-            if (...) { // Номер месяца должен быть в диапазоне от 1 до 12
+            if (monthNumber >= 1 && monthNumber <= 12) { // Номер месяца должен быть в диапазоне от 1 до 12
                 break;
             } else {
                 System.out.println("Некорретный номер месяца. Введите ещё раз.");
@@ -27,7 +27,7 @@ public class Main {
 
         String season = getSeasonByNumber(monthNumber);
 
-        if (...) { // Не рекомендуем лететь в Париж в летние и зимние месяцы
+        if (season.equals("Лето") || season.equals("Зима")) { // Не рекомендуем лететь в Париж в летние и зимние месяцы
             System.out.println("В это время года лучше остаться в Москве.");
             return;
         }
@@ -42,10 +42,10 @@ public class Main {
         System.out.println("0 - визы нет");
         int britainVisa = scanner.nextInt();
 
-        boolean directTicketsCheaper = ... // Сравнение стоимости билетов
-        boolean hasBritainVisa = ... // Проверка наличия визы
+        boolean directTicketsCheaper = ticketMoscowParis >= ticketMoscowLondonParis; // Сравнение стоимости билетов
+        boolean hasBritainVisa = britainVisa == 1; // Проверка наличия визы
 
-        if (...) { // Проверить в одном условии наличие дешёвых билетов и визы
+        if (directTicketsCheaper && hasBritainVisa) { // Проверить в одном условии наличие дешёвых билетов и визы
             System.out.println("Летим через Лондон!");
         } else {
             System.out.println("Летим через Париж!");
