@@ -7,7 +7,7 @@
 
 1/ Внимательно прочитайте код. Разберитесь, как он устроен.
 2/ Допечатайте все нужные характеристики — для этого нужно обратиться к полям класса.
-3/ Реализуйте методы:
+3/ Реализуйте методы
 4/ Параметры авто игрока будут подгружаться из отдельного сервиса, хранение данных в котором
 отличается от используемого в игре. Метод createCarByProperties(CarProperties carProperties),
 должен конвертировать параметры в нужные типы и возвращает экземпляр класса Car.
@@ -45,9 +45,9 @@ public class Main {
         System.out.println("Давно тебя не было в Яндекс.Гонках!");
         System.out.println("Характеристики твоего автомобиля:");
         // Напечатайте характеристики автомобиля игрока
-        System.out.println("- Максимальная скорость: " + ...);
-        System.out.println("- Ускорение: " + ...);
-        System.out.println("- Закись азота: " + ...);
+        System.out.println("- Максимальная скорость: " + userCarProperties.maxSpeed);
+        System.out.println("- Ускорение: " + userCarProperties.acceleration);
+        System.out.println("- Закись азота: " + userCarProperties.nitroLevel);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -61,9 +61,9 @@ public class Main {
                 Car opponentCar = generateOpponentCar();
                 System.out.println("Характеристики автомобиля соперника:");
                 // Напечатайте характеристики автомобиля соперника
-                System.out.println("- Максимальная скорость: " + ...);
-                System.out.println("- Ускорение: " + ...);
-                System.out.println("- Закись азота: " + ...);
+                System.out.println("- Максимальная скорость: " + opponentCar.maxSpeed);
+                System.out.println("- Ускорение: " + opponentCar.acceleration);
+                System.out.println("- Закись азота: " + opponentCar.nitroLevel);
 
                 int distance = generateInt(5, 70);
                 System.out.println("Гонка будет проходить на дистанции: " + distance + " км.");
