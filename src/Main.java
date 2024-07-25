@@ -34,7 +34,7 @@ public class Main {
             boolean isWeight = hamster.weight >= 150 && hamster.weight <=200 || hamster.isFluffy;
             boolean isAge = hamster.age >=2;
 
-            if (isColor || isWeight || isAge || hamster.isWinner) {
+            if (isColor && isWeight && isAge && !hamster.isWinner) {
                 System.out.println(" - " + hamster.name);
             }
         }
