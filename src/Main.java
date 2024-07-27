@@ -159,9 +159,13 @@ public class Main {
                 nitroLevel
         );
     }
-
+    
     private static Integer getNitroLevel(int nitroLevel) {
         // Пропишите логику по конвертации параметра nitroLevel
-        ...
+        if (nitroLevel == 0) {
+            return null;
+        } else {
+            return nitroLevel;
+        }
     }
 }
