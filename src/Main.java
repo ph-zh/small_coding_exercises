@@ -71,8 +71,8 @@ public class Main {
 
             } else if (command == 2) {
                 // Напечатайте количество заработанных очков и пройденных километров
-                System.out.println("- Количество заработанных очков: " + ...);
-                System.out.println("- Пройдено километров на этом авто: " + ...);
+                System.out.println("- Количество заработанных очков: " + userCarProperties.initialScore);
+                System.out.println("- Пройдено километров на этом авто: " + userCar.kilometersTravelled);
             } else if (command == 3) {
                 System.out.println("Увидимся!");
                 break;
@@ -147,10 +147,10 @@ public class Main {
 
     private static Car createCarByProperties(CarProperties carProperties) {
         // Конвертируйте параметры в нужные типы
-        double maxSpeed = ...;
-        float acceleration = ...;
-        int score = ...;
-        Integer nitroLevel = ...;
+        double maxSpeed = Double.parseDouble(carProperties.maxSpeed);
+        float acceleration = (float) carProperties.acceleration;
+        int score = carProperties.initialScore;
+        Integer nitroLevel = carProperties.nitroLevel;
 
         return new Car( // Метод возвращает экземпляр класса Car
                 maxSpeed,
