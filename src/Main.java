@@ -85,29 +85,28 @@ public class Main {
         // на значение points, пройденное расстояние - на значение distance.
         ...
     }
-
+    
     private static int makeRace(Car userCar, Car opponentCar, int distance) {
         printFlag();
         // Напишите логические выражения для определения победителя
-        boolean shortRaceWin = ... // на короткой дистанции
-        boolean longRaceWin = ... // на длинной дистанции
+        boolean shortRaceWin = distance <= 15 && userCar.acceleration > opponentCar.acceleration || userCar.acceleration < opponentCar.acceleration; // на короткой дистанции
+        boolean longRaceWin = distance > 50 && userCar.maxSpeed > opponentCar.maxSpeed || userCar.maxSpeed < opponentCar.maxSpeed; // на длинной дистанции
 
-        if (...) { // если победил на короткой или на длинной дистанции
+        if (shortRaceWin || longRaceWin) { // если победил на короткой или на длинной дистанции
             System.out.println("Вы выиграли!");
             // Найдите и верните наибольшее из максимальных скоростей
-            ...
-            return ...;
-        } else if (...) { // Уровни ускорения должны быть равны
+            return (int) Double.max(userCar.maxSpeed,opponentCar.maxSpeed);
+        } else if (userCar.acceleration == opponentCar.acceleration) { // Уровни ускорения должны быть равны
             System.out.println("Ничья!");
-            return ...
+            return 0;
         } else {
             // Сравните уровни закиси азота
-            if (...) {
+            if (userCar.nitroLevel > opponentCar.nitroLevel) {
                 System.out.println("Вы проиграли, но благодаря закиси азота сохранили очки.");
-                return ...;
+                return 0;
             } else {
                 System.out.println("Вы проиграли(");
-                return ...;
+                return -100;
             }
         }
     }
@@ -159,7 +158,7 @@ public class Main {
                 nitroLevel
         );
     }
-    
+
     private static Integer getNitroLevel(int nitroLevel) {
         // Пропишите логику по конвертации параметра nitroLevel
         if (nitroLevel == 0) {
