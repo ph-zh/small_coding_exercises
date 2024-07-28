@@ -88,12 +88,18 @@ public class Main {
         // В результате выполнения метода у userCar количество очков должно увеличиться
         // на значение points, пройденное расстояние - на значение distance.
     }
-
+/*
+- В случае победы игрока метод возвращает количество очков, равное наибольшему из максимальных скоростей участников.
+- Если по первому условию определить победителя не удалось, сравниваются ускорения игроков. Если они равны,
+объявляется ничья и метод возвращает 0 очков.
+- Если и ничью определить не удалось, сравнивается уровень закиси азота. Если он строго больше, то метод
+возвращает 0 очков. Если нет, метод возвращает -100 очков.
+ */
     private static int makeRace(Car userCar, Car opponentCar, int distance) {
         printFlag();
         // Напишите логические выражения для определения победителя
-        boolean shortRaceWin = distance <= 15 && userCar.acceleration > opponentCar.acceleration || userCar.acceleration < opponentCar.acceleration; // на короткой дистанции
-        boolean longRaceWin = distance > 50 && userCar.maxSpeed > opponentCar.maxSpeed || userCar.maxSpeed < opponentCar.maxSpeed; // на длинной дистанции
+        boolean shortRaceWin = distance <= 15 && userCar.acceleration > opponentCar.acceleration; // на короткой дистанции
+        boolean longRaceWin = distance > 50 && userCar.maxSpeed > opponentCar.maxSpeed; // на длинной дистанции
 
         if (shortRaceWin || longRaceWin) { // если победил на короткой или на длинной дистанции
             System.out.println("Вы выиграли!");
@@ -105,6 +111,7 @@ public class Main {
         } else {
             // Сравните уровни закиси азота
             if (userCar.nitroLevel > opponentCar.nitroLevel) {
+                // getNitroLevel(userCar.nitroLevel) == getNitroLevel(opponentCar.nitroLevel)
                 System.out.println("Вы проиграли, но благодаря закиси азота сохранили очки.");
                 return 0;
             } else {
@@ -113,6 +120,7 @@ public class Main {
             }
         }
     }
+
     private static void printFlag() { // Метод печатает флаг
         System.out.println("_\n" +
                 "\\'-,,.\n" +
