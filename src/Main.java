@@ -68,7 +68,7 @@ public class Main {
                 System.out.println("Гонка будет проходить на дистанции: " + distance + " км.");
 
                 int points = makeRace(userCar, opponentCar, distance);
-                changePointAndDistance(points, userCar); // передайте в метод аргументы
+                changePointAndDistance(points); // передайте в метод аргументы
 
             } else if (command == 2) {
                 // Напечатайте количество заработанных очков и пройденных километров
@@ -85,10 +85,10 @@ public class Main {
     7/ Метод changePointAndDistance(...) должен менять количество очков на переданный аргумент points и увеличивать количество
 пройденных километров на аргумент distance.
      */
-    private static void changePointAndDistance(int points, Car userCar) { // реализуйте метод
+    private static void changePointAndDistance(int points) { // реализуйте метод
         // В результате выполнения метода у userCar количество очков должно увеличиться
         // на значение points, пройденное расстояние - на значение distance.
-        points = (int) userCar.kilometersTravelled + points;
+        points = points + 1;
     }
 
     private static int makeRace(Car userCar, Car opponentCar, int distance) {
@@ -106,7 +106,7 @@ public class Main {
             return 0;
         } else {
             // Сравните уровни закиси азота
-            if (userCar.nitroLevel > opponentCar.nitroLevel) {
+            if (getNitroLevel(userCar.nitroLevel) > getNitroLevel(opponentCar.nitroLevel)) {
                 System.out.println("Вы проиграли, но благодаря закиси азота сохранили очки.");
                 return 0;
             } else {
