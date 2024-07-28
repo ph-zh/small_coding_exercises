@@ -67,11 +67,11 @@ public class Main {
                 System.out.println("Гонка будет проходить на дистанции: " + distance + " км.");
 
                 int points = makeRace(userCar, opponentCar, distance);
-                changePointAndDistance(points); // передайте в метод аргументы
+                changePointAndDistance(points, userCar, distance); // передайте в метод аргументы
 
             } else if (command == 2) {
                 // Напечатайте количество заработанных очков и пройденных километров
-                System.out.println("- Количество заработанных очков: " + 1);
+                System.out.println("- Количество заработанных очков: " + userCar.score);
                 System.out.println("- Пройдено километров на этом авто: " + userCar.kilometersTravelled);
             } else if (command == 3) {
                 System.out.println("Увидимся!");
@@ -84,17 +84,12 @@ public class Main {
     7/ Метод changePointAndDistance(...) должен менять количество очков на переданный аргумент points и
 увеличивать количество пройденных километров на аргумент distance.
      */
-    private static void changePointAndDistance(int points) { // реализуйте метод
+    private static void changePointAndDistance(int points, Car userCar, int distance) { // реализуйте метод
         // В результате выполнения метода у userCar количество очков должно увеличиться
         // на значение points, пройденное расстояние - на значение distance.
+        userCar.score = points + distance;
     }
-/*
-- В случае победы игрока метод возвращает количество очков, равное наибольшему из максимальных скоростей участников.
-- Если по первому условию определить победителя не удалось, сравниваются ускорения игроков. Если они равны,
-объявляется ничья и метод возвращает 0 очков.
-- Если и ничью определить не удалось, сравнивается уровень закиси азота. Если он строго больше, то метод
-возвращает 0 очков. Если нет, метод возвращает -100 очков.
- */
+
     private static int makeRace(Car userCar, Car opponentCar, int distance) {
         printFlag();
         // Напишите логические выражения для определения победителя
