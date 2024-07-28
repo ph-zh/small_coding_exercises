@@ -148,10 +148,10 @@ public class Main {
 
     private static Car createCarByProperties(CarProperties carProperties) {
         // Конвертируйте параметры в нужные типы
-        double maxSpeed = ...;
-        float acceleration = ...;
-        int score = ...;
-        Integer nitroLevel = ...;
+        double maxSpeed = Double.parseDouble(carProperties.maxSpeed);
+        float acceleration = (float) carProperties.acceleration;
+        int score = carProperties.initialScore;
+        Integer nitroLevel = carProperties.nitroLevel;
 
         return new Car( // Метод возвращает экземпляр класса Car
                 maxSpeed,
@@ -163,6 +163,10 @@ public class Main {
 
     private static Integer getNitroLevel(int nitroLevel) {
         // Пропишите логику по конвертации параметра nitroLevel
-        ...
+        if(nitroLevel == 0) {
+            return null;
+        } else {
+            return nitroLevel;
+        }
     }
 }
