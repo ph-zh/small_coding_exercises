@@ -86,39 +86,29 @@ public class Main {
         // на значение points, пройденное расстояние - на значение distance.
         ...
     }
-/*
-- Если гоночная дистанция — переменная distance — меньше или равна 15 километрам, то победителем объявляется тот игрок,
-у автомобиля которого больше ускорение — поле acceleration. Если дистанция больше 50 километров, то выигрывает тот,
-у автомобиля которого наибольшая максимальная скорость — поле maxSpeed.
-- В случае победы игрока метод возвращает количество очков, равное наибольшему из максимальных скоростей участников.
-- Если по первому условию определить победителя не удалось, сравниваются ускорения игроков. Если они равны, объявляется
-ничья и метод возвращает 0 очков.
-- Если и ничью определить не удалось, сравнивается уровень закиси азота. Если он строго больше, то метод возвращает 0 очков.
-Если нет, метод возвращает -100 очков.
-!
- */
+
     private static int makeRace(Car userCar, Car opponentCar, int distance) {
         printFlag();
         // Напишите логические выражения для определения победителя
-        boolean shortRaceWin = distance <= 15 || userCar.acceleration > opponentCar.acceleration; // на короткой дистанции
-        boolean longRaceWin = ... // на длинной дистанции
+        boolean shortRaceWin = distance <= 15 && userCar.acceleration > opponentCar.acceleration; // на короткой дистанции
+        boolean longRaceWin = distance > 50 && userCar.maxSpeed > opponentCar.maxSpeed; // на длинной дистанции
 
-        if (...) { // если победил на короткой или на длинной дистанции
+        if (shortRaceWin || longRaceWin) { // если победил на короткой или на длинной дистанции
             System.out.println("Вы выиграли!");
             // Найдите и верните наибольшее из максимальных скоростей
-            ...
-            return ...;
-        } else if (...) { // Уровни ускорения должны быть равны
+            int maxBetween2Speeds = Integer.max((int)userCar.maxSpeed,(int)opponentCar.maxSpeed);
+            return maxBetween2Speeds;
+        } else if (userCar.acceleration == opponentCar.acceleration) { // Уровни ускорения должны быть равны
             System.out.println("Ничья!");
-            return ...
+            return 0;
         } else {
             // Сравните уровни закиси азота
-            if (...) {
+            if (userCar.nitroLevel > opponentCar.nitroLevel) {
                 System.out.println("Вы проиграли, но благодаря закиси азота сохранили очки.");
-                return ...;
+                return 0;
             } else {
                 System.out.println("Вы проиграли(");
-                return ...;
+                return -100;
             }
         }
     }
