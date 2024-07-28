@@ -44,9 +44,9 @@ public class Main {
         System.out.println("Давно тебя не было в Яндекс.Гонках!");
         System.out.println("Характеристики твоего автомобиля:");
         // Напечатайте характеристики автомобиля игрока
-        System.out.println("- Максимальная скорость: " + ...);
-        System.out.println("- Ускорение: " + ...);
-        System.out.println("- Закись азота: " + ...);
+        System.out.println("- Максимальная скорость: " + userCar.maxSpeed);
+        System.out.println("- Ускорение: " + userCar.acceleration);
+        System.out.println("- Закись азота: " + userCar.nitroLevel);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -60,9 +60,9 @@ public class Main {
                 Car opponentCar = generateOpponentCar();
                 System.out.println("Характеристики автомобиля соперника:");
                 // Напечатайте характеристики автомобиля соперника
-                System.out.println("- Максимальная скорость: " + ...);
-                System.out.println("- Ускорение: " + ...);
-                System.out.println("- Закись азота: " + ...);
+                System.out.println("- Максимальная скорость: " + opponentCar.maxSpeed);
+                System.out.println("- Ускорение: " +opponentCar.acceleration);
+                System.out.println("- Закись азота: " + opponentCar.nitroLevel);
 
                 int distance = generateInt(5, 70);
                 System.out.println("Гонка будет проходить на дистанции: " + distance + " км.");
@@ -96,8 +96,7 @@ public class Main {
         if (shortRaceWin || longRaceWin) { // если победил на короткой или на длинной дистанции
             System.out.println("Вы выиграли!");
             // Найдите и верните наибольшее из максимальных скоростей
-            int maxBetween2Speeds = Integer.max((int)userCar.maxSpeed,(int)opponentCar.maxSpeed);
-            return maxBetween2Speeds;
+            return Integer.max((int)userCar.maxSpeed,(int)opponentCar.maxSpeed);
         } else if (userCar.acceleration == opponentCar.acceleration) { // Уровни ускорения должны быть равны
             System.out.println("Ничья!");
             return 0;
