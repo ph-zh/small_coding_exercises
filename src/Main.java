@@ -84,8 +84,8 @@ public class Main {
     private static void changePointAndDistance(int distance, Car userCar, int points) { // реализуйте метод
         // В результате выполнения метода у userCar количество очков должно увеличиться
         // на значение points, пройденное расстояние - на значение distance.
-        userCar.kilometersTravelled = userCar.kilometersTravelled + distance;
-        userCar.score = userCar.score + points;
+        userCar.kilometersTravelled += distance;
+        userCar.score += points;
     }
 
     private static int makeRace(Car userCar, Car opponentCar, int distance) {
