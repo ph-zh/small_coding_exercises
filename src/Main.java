@@ -46,7 +46,7 @@ public class Main {
         // Напечатайте характеристики автомобиля игрока
         System.out.println("- Максимальная скорость: " + userCar.maxSpeed);
         System.out.println("- Ускорение: " + userCar.acceleration);
-        System.out.println("- Закись азота: " + getNitroLevel(userCar.nitroLevel));
+        System.out.println("- Закись азота: " + userCar.nitroLevel);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -62,7 +62,7 @@ public class Main {
                 // Напечатайте характеристики автомобиля соперника
                 System.out.println("- Максимальная скорость: " + opponentCar.maxSpeed);
                 System.out.println("- Ускорение: " + opponentCar.acceleration);
-                System.out.println("- Закись азота: " + getNitroLevel(opponentCar.nitroLevel));
+                System.out.println("- Закись азота: " + opponentCar.nitroLevel);
 
                 int distance = generateInt(5, 70);
                 System.out.println("Гонка будет проходить на дистанции: " + distance + " км.");
@@ -73,7 +73,7 @@ public class Main {
             } else if (command == 2) {
                 // Напечатайте количество заработанных очков и пройденных километров
                 System.out.println("- Количество заработанных очков: " + userCar.score);
-                System.out.println("- Пройдено километров на этом авто: " + userCar.kilometersTravelled);
+                System.out.println("- Пройдено километров на этом авто: " + (int) userCar.kilometersTravelled);
             } else if (command == 3) {
                 System.out.println("Увидимся!");
                 break;
@@ -151,7 +151,7 @@ public class Main {
         double maxSpeed = Double.parseDouble(carProperties.maxSpeed);
         float acceleration = (float) carProperties.acceleration;
         int score = carProperties.initialScore;
-        Integer nitroLevel = carProperties.nitroLevel;
+        Integer nitroLevel = getNitroLevel(carProperties.nitroLevel);
 
         return new Car( // Метод возвращает экземпляр класса Car
                 maxSpeed,
