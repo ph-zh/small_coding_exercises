@@ -68,7 +68,7 @@ public class Main {
                 System.out.println("Гонка будет проходить на дистанции: " + distance + " км.");
 
                 int points = makeRace(userCar, opponentCar, distance);
-                changePointAndDistance(points); // передайте в метод аргументы
+                changePointAndDistance(distance, userCar); // передайте в метод аргументы
 
             } else if (command == 2) {
                 // Напечатайте количество заработанных очков и пройденных километров
@@ -85,10 +85,10 @@ public class Main {
     7/ Метод changePointAndDistance(...) должен менять количество очков на переданный аргумент points и увеличивать количество
 пройденных километров на аргумент distance.
      */
-    private static void changePointAndDistance(int points) { // реализуйте метод
+    private static void changePointAndDistance(int distance, Car userCar) { // реализуйте метод
         // В результате выполнения метода у userCar количество очков должно увеличиться
         // на значение points, пройденное расстояние - на значение distance.
-        points = points + 1;
+        userCar.kilometersTravelled = userCar.kilometersTravelled + distance;
     }
 
     private static int makeRace(Car userCar, Car opponentCar, int distance) {
@@ -97,7 +97,7 @@ public class Main {
         boolean shortRaceWin = distance <= 15 && userCar.acceleration > opponentCar.acceleration; // на короткой дистанции
         boolean longRaceWin = distance > 50 && userCar.maxSpeed > opponentCar.maxSpeed; // на длинной дистанции
 
-        if (shortRaceWin || longRaceWin) { // если победил на короткой или на длинной дистанции
+        if (shortRaceWin  || longRaceWin) { // если победил на короткой или на длинной дистанции
             System.out.println("Вы выиграли!");
             // Найдите и верните наибольшее из максимальных скоростей
             return Integer.max((int)userCar.maxSpeed,(int)opponentCar.maxSpeed);
@@ -106,7 +106,7 @@ public class Main {
             return 0;
         } else {
             // Сравните уровни закиси азота
-            if (getNitroLevel(userCar.nitroLevel) > getNitroLevel(opponentCar.nitroLevel)) {
+            if (userCar.nitroLevel > opponentCar.nitroLevel) {
                 System.out.println("Вы проиграли, но благодаря закиси азота сохранили очки.");
                 return 0;
             } else {
