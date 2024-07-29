@@ -46,7 +46,7 @@ public class Main {
         // Напечатайте характеристики автомобиля игрока
         System.out.println("- Максимальная скорость: " + userCar.maxSpeed);
         System.out.println("- Ускорение: " + userCar.acceleration);
-        System.out.println("- Закись азота: " + userCar.nitroLevel);
+        System.out.println("- Закись азота: " + getNitroLevel(userCar.nitroLevel));
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -61,8 +61,8 @@ public class Main {
                 System.out.println("Характеристики автомобиля соперника:");
                 // Напечатайте характеристики автомобиля соперника
                 System.out.println("- Максимальная скорость: " + opponentCar.maxSpeed);
-                System.out.println("- Ускорение: " +opponentCar.acceleration);
-                System.out.println("- Закись азота: " + opponentCar.nitroLevel);
+                System.out.println("- Ускорение: " + opponentCar.acceleration);
+                System.out.println("- Закись азота: " + getNitroLevel(opponentCar.nitroLevel));
 
                 int distance = generateInt(5, 70);
                 System.out.println("Гонка будет проходить на дистанции: " + distance + " км.");
@@ -81,10 +81,6 @@ public class Main {
         }
     }
 
-    /*
-    7/ Метод changePointAndDistance(...) должен менять количество очков на переданный аргумент points и увеличивать количество
-пройденных километров на аргумент distance.
-     */
     private static void changePointAndDistance(int distance, Car userCar, int points) { // реализуйте метод
         // В результате выполнения метода у userCar количество очков должно увеличиться
         // на значение points, пройденное расстояние - на значение distance.
