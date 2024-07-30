@@ -1,23 +1,18 @@
 /*
-Отредактируйте код, который ищет максимальное значение в массиве. Измените массив на список, заполните его элементами
-и получите с помощью цикла for самое большое значение.
+
  */
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Double> temperatures = new ArrayList<>();
-        temperatures.add(92.3);
-        temperatures.add(12.4);
-        temperatures.add(74.1);
-        temperatures.add(45.0);
+        ArrayList<Double> expenses = new ArrayList<>();
+        expenses.add(120.23);
+        expenses.add(290.32);
+        expenses.add(420.03);
 
-        double max = 0;
-        for (int i = 0; i < temperatures.size(); i++) {
-            if (temperatures.get(i) > max) {
-                max = temperatures.get(i);
-            }
+        System.out.println("Сейчас в списке: ");
+        for (Double exp : expenses) {
+            System.out.println("Трата на сумму " + exp + " руб.");
         }
-        System.out.println("Самая высокая температура: " + max + " °С.");
     }
 }
