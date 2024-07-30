@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ... speeds = ...; // Объявите список
+        ArrayList<Integer> speeds = new ArrayList<>();; // Объявите список
         speeds.add(120);
         speeds.add(75);
         speeds.add(42);
@@ -15,11 +15,11 @@ public class Main {
         speeds.add(20);
 
         int sum = 0;
-        for (... speed ...) {
-            ...;  // Сложите все значения в списке
+        for (Integer speed : speeds) {
+            sum += speed;  // Сложите все значения в списке
         }
 
-        int averageSpeed = ... // Вычислите среднюю скорость
-        System.out.println("Средняя скорость равна " + ... + " км/ч");
+        int averageSpeed = sum / speeds.size(); // Вычислите среднюю скорость
+        System.out.println("Средняя скорость равна " + averageSpeed + " км/ч");
     }
 }
