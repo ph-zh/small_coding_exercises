@@ -1,71 +1,68 @@
 /*
-Усовершенствуйте приложение для зоопарка: добавьте возможность добавлять и удалять животных из списка,
-а также проверять, живёт ли указанное пользователем животное в зоопарке. Вам нужно реализовать следующие команды
-цифрового меню приложения:
-1 — Показать список всех животных в зоопарке.
-2 — Добавить животное в список.
-3 — Удалить животное из списка.
-Учтите, что удалить элемент из списка можно только в том случае, если он не пуст.
-4 — Очистить список.
-Логика при очистке списка должна быть следующей: если список пуст, то делать ничего не нужно, в обратном случае
-— удалить все элементы.
-5 — Проверить, есть ли в зоопарке указанное пользователем животное.
+Перед вами код финансового приложения, который вы написали при прохождении бесплатной части курса.
+Для хранения трат в приложении сейчас используется массив и это не очень удобно. Вам нужно провести рефакторинг с учётом новых
+знаний — сделайте так, чтобы траты хранились в списке вместо массива.
+
+1/ Внесите правки в класс ExpensesManager — импортируйте ArrayList и создайте список expenses.
+2/ Поправьте код методов. Измените saveExpense() так, чтобы не нужно было указывать день и записываемые
+траты сохранялись в списке подряд, друг за другом. В методе findMaxExpense() используйте сокращённую форму цикла for.
+3/ Поправьте код в Praktikum. В текст меню мы уже внесли изменения. Вам осталось только удалить вопрос о выборе дня и
+отредактировать вызов метода saveExpense().
  */
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
-        ArrayList<String> animals = new ArrayList<>();
-        animals.add("Шиншилла");
-        animals.add("Крокодил");
-        animals.add("Лев");
-        animals.add("Медведь");
-        animals.add("Слон");
+        System.out.println("Сколько денег у вас осталось до зарплаты?");
+        double moneyBeforeSalary = scanner.nextDouble();
+        System.out.println("Сколько дней до зарплаты?");
+        int daysBeforeSalary = scanner.nextInt();
+
+        Converter converter = new Converter(78.5, 88.7, 0.75);
+        DinnerAdvisor dinnerAdvisor = new DinnerAdvisor();
+        ExpensesManager expensesManager = new ExpensesManager();
 
         while (true) {
             printMenu();
             int command = scanner.nextInt();
+
             if (command == 1) {
-                System.out.println("Сейчас в зоопарке можно увидеть " + animals.size() + " животных:");
-                for (String animal : animals) {
-                    System.out.println(animal); // Напечатайте животных
-                }
+                System.out.println("Ваши сбережения: " + moneyBeforeSalary + " RUB");
+                System.out.println("В какую валюту хотите конвертировать? Доступные варианты: 1 - USD, 2 - EUR, 3 - JPY.");
+                int currency = scanner.nextInt();
+                converter.convert(moneyBeforeSalary, currency);
             } else if (command == 2) {
-                System.out.println("Какое животное хотите добавить?");
-                String animal = scanner.next();
-                animals.add(animal); // Добавьте животное
+                dinnerAdvisor.getAdvice(moneyBeforeSalary, daysBeforeSalary);
             } else if (command == 3) {
-                System.out.println("Какое животное нужно удалить?");
-                String animal = scanner.next();
-                // Удалите животное, если список не пуст
-                animals.remove(animal);
+                // Номер дня больше не нужен. Уберите вопрос и считывание номера дня
+                System.out.println("За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?");
+                int day = scanner.nextInt();
+                System.out.println("Введите размер траты:");
+                double expense = scanner.nextDouble();
+                // Сигнатура метода изменится, учитывайте это
+                moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary, expense, day);
             } else if (command == 4) {
-                animals.clear(); // Очистите список
-                System.out.println("Все животные перевезены в другой зоопарк. Список пуст.");
+                expensesManager.printAllExpenses();
             } else if (command == 5) {
-                System.out.println("Какое животное вы хотите увидеть в зоопарке?");
-                String animal = scanner.next();
-                // Допишите условия
-                boolean animalCheck = animals.contains(animal);
-                if (!animalCheck) {
-                    System.out.println("Такого животного сейчас нет в нашем зоопарке.");
-                } else {
-                    System.out.println(animal + " на месте! Приходите посмотреть.");
-                }
-            } else {
+                System.out.println("Самая большая сумма расходов составила " + expensesManager.findMaxExpense() + " руб.");
+            } else if (command == 0) {
+                System.out.println("Выход");
                 break;
+            } else {
+                System.out.println("Извините, такой команды пока нет.");
             }
         }
     }
 
     public static void printMenu() {
-        System.out.println("1 - Показать список животных в зоопарке.");
-        System.out.println("2 - Добавить животное в список.");
-        System.out.println("3 - Удалить животное из списка.");
-        System.out.println("4 - Очистить список.");
-        System.out.println("5 - Проверить, есть ли в зоопарке животное.");
-        System.out.println("Любая другая цифра - Выйти из приложения.");
+        System.out.println("Что вы хотите сделать? ");
+        System.out.println("1 - Конвертировать валюту");
+        System.out.println("2 - Получить совет");
+        System.out.println("3 - Ввести трату");
+        System.out.println("4 - Показать траты");
+        System.out.println("5 - Показать самую большую сумму расходов");
+        System.out.println("0 - Выход");
     }
 }
