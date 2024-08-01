@@ -26,7 +26,7 @@ public class ExpensesManager {
 
     double findMaxExpense() {
         double maxExpense = 0;
-        for (Double exp : expenses) {
+        for (Expense exp : expenses) {
             if (exp.getValue() > maxExpense) {
                 maxExpense = exp.getValue();
             }
@@ -41,17 +41,13 @@ public class ExpensesManager {
         System.out.println("Список трат пуст.");
     }
 
-
-    // Добавьте метод removeExpense(int transaction)
-    /* Текст для печати: "Список трат пуст."
-        "Трата удалена!"
-        "Такой траты нет." */
     void removeExpense(int transaction) {
-        if (!expenses.contains(transaction)) {
+        if (expenses.isEmpty()) {
             System.out.println("Список трат пуст.");
-        } else {
-            expenses.remove(transaction);
+        } else if (expenses.contains(expenses.get(transaction))) {
+            expenses.remove(expenses.get(transaction));
             System.out.println("Трата удалена!");
+        } else {
             System.out.println("Такой траты нет.");
         }
     }
