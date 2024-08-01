@@ -47,8 +47,12 @@ public class ExpensesManager {
         "Трата удалена!"
         "Такой траты нет." */
     void removeExpense(int transaction) {
-        System.out.println("Список трат пуст.");
-        System.out.println("Трата удалена!");
-        System.out.println("Такой траты нет.");
+        if (!expenses.contains(transaction)) {
+            System.out.println("Список трат пуст.");
+        } else {
+            expenses.remove(transaction);
+            System.out.println("Трата удалена!");
+            System.out.println("Такой траты нет.");
+        }
     }
 }
