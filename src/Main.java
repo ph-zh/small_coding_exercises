@@ -49,12 +49,14 @@ public class Main {
                 expensesManager.printAllExpenses();
             } else if (command == 5) {
                 System.out.println("Самая большая сумма расходов составила " + expensesManager.findMaxExpense() + " руб.");
-            } else ... { // Добавьте реализацию команды 6
-						    ... // Вызовите соответствующий метод
-            } else ... { // Добавьте реализацию команды 7
+            } else if (command == 6) { // Добавьте реализацию команды 6
+                // Вызовите соответствующий метод
+                expensesManager.removeAllExpenses();
+            } else if (command == 7) { // Добавьте реализацию команды 7
                 System.out.println("Введите транзакцию:");
-                int transaction = ...; // Считайте значение транзакции
-                ... // Вызовите соответствующий метод
+                int transaction = scanner.nextInt(); // Считайте значение транзакции
+                // Вызовите соответствующий метод
+                expensesManager.removeExpense(transaction);
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
@@ -72,8 +74,8 @@ public class Main {
         System.out.println("4 - Показать траты");
         System.out.println("5 - Показать самую большую сумму расходов");
         // Добавьте новые пункты в меню:
-        ... // "6 - Очистить список трат"
-        ... // "7 - “Найти и удалить трату"
+        System.out.println("6 - Очистить список трат");
+        System.out.println("7 - “Найти и удалить трату");
         System.out.println("0 - Выход");
     }
 }
