@@ -35,11 +35,20 @@ public class ExpensesManager {
     }
 
     // Добавьте метод removeAllExpenses()
-    ... // Текст для печати: "Список трат пуст."
+    // Текст для печати: "Список трат пуст."
+    void removeAllExpenses() {
+        expenses.clear();
+        System.out.println("Список трат пуст.");
+    }
 
-            // Добавьте метод removeExpense(int transaction)
-            ... /* Текст для печати: "Список трат пуст."
+
+    // Добавьте метод removeExpense(int transaction)
+    /* Текст для печати: "Список трат пуст."
         "Трата удалена!"
         "Такой траты нет." */
-
+    void removeExpense(int transaction) {
+        System.out.println("Список трат пуст.");
+        System.out.println("Трата удалена!");
+        System.out.println("Такой траты нет.");
+    }
 }
