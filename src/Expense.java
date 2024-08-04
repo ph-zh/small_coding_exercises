@@ -28,5 +28,4 @@ public class Expense {
         this.value = value;
         this.transaction = (int) Math.random(); //реализуйте создание уникального номера транзакции
     }
-
 }
