@@ -38,15 +38,7 @@ public class ExpensesManager {
         expenses.clear();
         System.out.println("Список трат пуст.");
     }
-
-    /*
-    метод removeExpense(int transaction) должен проверять, содержится ли указанное пользователем значение в списке.
-    Если в списке нет ни одной траты, то нужно сообщить пользователю, что «Список трат пуст». Если трата найдена,
-    то её нужно удалить и сообщить об этом. Если указанной суммы расходов в списке нет, то нужно вывести на экран, что «Такой траты нет».
-    System.out.println("Список трат пуст.");
-    System.out.println("Такой траты нет.");
-    System.out.println("Трата удалена!");
-     */
+    
     void removeExpense(int transaction, int index) {
         if (expenses.isEmpty()) {
             System.out.println("Список трат пуст.");
