@@ -55,8 +55,9 @@ public class Main {
             } else if (command == 7) { // Добавьте реализацию команды 7
                 System.out.println("Введите транзакцию:");
                 int transaction = scanner.nextInt(); // Считайте значение транзакции
+                int index = 0;
                 // Вызовите соответствующий метод
-                expensesManager.removeExpense(transaction);
+                expensesManager.removeExpense(index, transaction);
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;

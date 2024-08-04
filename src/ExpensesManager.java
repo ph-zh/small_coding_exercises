@@ -20,7 +20,7 @@ public class ExpensesManager {
     void printAllExpenses() {
         for (int i = 0; i < expenses.size(); i++) {
             Expense exp = expenses.get(i);
-            System.out.println("Трата № " + (i + 1) + ". Потрачено " + exp.getValue() + " рублей, код транзакции: "+ (exp.getTransaction() + i + 1));
+            System.out.println("Трата № " + (i + 1) + ". Потрачено " + exp.getValue() + " рублей, код транзакции: " + exp.getTransaction());
         }
     }
 
@@ -39,14 +39,30 @@ public class ExpensesManager {
         System.out.println("Список трат пуст.");
     }
 
-    void removeExpense(int transaction) {
-        if(expenses.isEmpty()) {
+    /*
+    метод removeExpense(int transaction) должен проверять, содержится ли указанное пользователем значение в списке.
+    Если в списке нет ни одной траты, то нужно сообщить пользователю, что «Список трат пуст». Если трата найдена,
+    то её нужно удалить и сообщить об этом. Если указанной суммы расходов в списке нет, то нужно вывести на экран, что «Такой траты нет».
+    System.out.println("Список трат пуст.");
+    System.out.println("Такой траты нет.");
+    System.out.println("Трата удалена!");
+     */
+    void removeExpense(int transaction, int index) {
+        if (expenses.isEmpty()) {
             System.out.println("Список трат пуст.");
-        } else if (!expenses.contains(expenses.get(transaction - 1))) {
-            System.out.println("Такой траты нет.");
         } else {
-            expenses.remove(expenses.get(transaction - 1));
-            System.out.println("Трата удалена!");
+            if(index < expenses.size()) {
+                for(index = 0; index < expenses.size(); index++) {
+                    if (expenses.contains(expenses.get(transaction))) {
+                        expenses.remove(expenses.get(transaction));
+                            System.out.println("Трата удалена!");
+                    } else {
+                        System.out.println("Такой траты нет.");
+                    }
+                }
+            } else {
+                System.out.println("Такой траты нет.");
+            }
         }
     }
 }
