@@ -56,6 +56,7 @@ public class ExpensesManager {
                     if (expenses.contains(expenses.get(transaction))) {
                         expenses.remove(expenses.get(transaction));
                             System.out.println("Трата удалена!");
+                            break;
                     } else {
                         System.out.println("Такой траты нет.");
                     }
