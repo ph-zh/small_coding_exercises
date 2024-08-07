@@ -18,9 +18,7 @@ public class Expense {
         return transaction;
     }
 
-    public void setTransaction(Integer transaction) {
-        this.transaction = transaction;
-    }
+
 
     //в конструкторе мы сгенерируем уникальный номер транзакции от 0 до 1 000 000
     //с помощью функции Math.random();
